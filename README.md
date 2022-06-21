@@ -38,6 +38,7 @@ https://hoodawe.herokuapp.com/
 ## Navigate into the folder and install requirements 
 
  cd accolades pip install -r requirements.txt 
+ 
 
 ## Install and activate Virtual 
 
