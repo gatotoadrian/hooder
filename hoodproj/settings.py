@@ -90,6 +90,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'hoodproj.wsgi.application'
 
 
