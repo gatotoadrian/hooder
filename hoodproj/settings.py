@@ -18,6 +18,7 @@ import cloudinary.api
 import django_heroku
 
 from pathlib import Path
+
 from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
