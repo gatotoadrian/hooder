@@ -4,7 +4,7 @@
 
 ## Author  
   
-  
+
  gatotoadrian
   
 # Description  
@@ -16,6 +16,7 @@ https://hoodawe.herokuapp.com/
 
  
 ## User Story  
+
   
 * Sign in with the application to start using.
 * Set up a profile about me and a general location and my neighborhood name.
