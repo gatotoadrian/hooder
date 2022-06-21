@@ -54,12 +54,13 @@ python3 -m venv virtual - source virtual/bin/activate
 python manage.py makemigrations photos
  ``` 
  Now Migrate  
- 
+
  ```bash 
  python manage.py migrate 
 ```
 ##### Run the application  
  ```bash 
+ 
  python manage.py runserver 
 ``` 
 ##### Running the application  
