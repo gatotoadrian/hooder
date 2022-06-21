@@ -38,7 +38,7 @@ https://hoodawe.herokuapp.com/
 ## Navigate into the folder and install requirements 
 
  cd accolades pip install -r requirements.txt 
- 
+
 
 ## Install and activate Virtual 
 
@@ -54,6 +54,7 @@ python3 -m venv virtual - source virtual/bin/activate
 python manage.py makemigrations photos
  ``` 
  Now Migrate  
+ 
  ```bash 
  python manage.py migrate 
 ```
