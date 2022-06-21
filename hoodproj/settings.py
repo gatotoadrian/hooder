@@ -72,6 +72,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hoodproj.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
