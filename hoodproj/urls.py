@@ -24,6 +24,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('',include('hoodapp.urls')),
     path('accounts/register/', RegistrationView.as_view(success_url='/'),
     name='django_registration_register'),
