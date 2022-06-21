@@ -157,6 +157,7 @@ cloudinary.config(
     api_key= config('CL_KEY'),
     api_secret=config('CL_SECRET'),
     
+    
 )
 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
