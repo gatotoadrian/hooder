@@ -1,0 +1,50 @@
+{% extends 'all-hood/base.html'%}
+{% block content %}
+{{block.super}}
+
+<div class="container hub">
+    <div class="row">
+
+        {% for hoods in hood %}
+        <div class="col-md-6">
+            
+            <a href="{%url 'lone_hood' hoods.name %}" class="btn btn-sm"
+            ><img src="{{hoods.hood_image.url}}" alt="" class="image">
+            </a>
+
+            <p class="name">{{hoods.name}}  </p>
+            <p> {{ hoods.location }}</p>
+            <p>{{hoods.members.count}} Member{{hoods.members.count|pluralize}}</p>
+            <p>{{ hoods.description }}</p>
+
+            {% if request.user.profile.neighborhood == hoods %}
+            <a href="{% url 'leave_hood' hoods.id %}" class="btn btn-outline-danger btn-sm">Leave at will</a>
+
+            <a href="{%url 'lone_hood' hoods.name %}" class="btn btn-outline-success btn-sm"
+                style="float: right">Explore
+                {{hoods.name}}
+            </a>
+            {% elif not request.user.profile.neighborhood %}
+            <a href="{% url 'join_hood' hoods.id %}" class="btn btn-info btn-sm mt-2">Join Hood</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div><br>
+<br>
+
+<style>
+    .image {
+        height: auto;
+        width: 100%;
+    }
+
+    .hub {
+        margin-top: 2%;
+        
+    }
+</style>
+
+{% endblock %}

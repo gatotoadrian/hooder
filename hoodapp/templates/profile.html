@@ -1,0 +1,150 @@
+{% extends "all-hood/base.html" %}
+{% block content %}
+
+
+<section class="profile container">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    {% if profile.profile_pic %}
+                    <img src="{{profile.profile_pic.url}}" alt="" style="border-radius: 70%; width: 50%;">
+                    {%else%}
+                    <img src="https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg"
+                        class="card-img-top" alt="My profile picture">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-text">
+                            {{ user.first_name }} {{ user.last_name }}
+                        </h4>
+                        <p>{{ user.username }}</p>
+                        
+                        <p>
+                            {% if profile.bio %}
+                            <small>{{ profile.bio }}</small>
+                            {% else %}
+                            <span class="text-danger">know about me</span>
+                            {% endif %}
+                        </p>
+                        <h6>Joined on: <span class="badge rounded-pill bg-secondary text-white">
+                                {{ user.date_joined }} </span></h6>
+                                <p>{{ profile.contact }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="details">
+                    <div class="first">
+                      <h3>{{user.username}}</h3>
+                      {% if request.user is user %}  
+                      <div>
+                        <a href="{%url 'update_profile' user.id %}" class="btn btn-outline-info bg-info text-white rounded-pill">
+                          Edit Profile
+                        </a>
+                      </div>
+                      <br>
+                      {% endif %}
+                
+                    </div>
+                    <div>
+                        <a href="{%url 'create_hood'  %}"  class="btn btn-outline-info bg-info text-white rounded-pill">
+                         Create Neighborhood
+                        </a>
+                    </div>
+                    <br>
+                    <div>
+                        <a href="{%url 'create_business'  %}"  class="btn btn-outline-info bg-info text-white rounded-pill">
+                         Create Business
+                        </a>
+                    </div>
+                    <br>
+                    <div>
+                        <a href="{%url 'create_post'  %}"  class="btn btn-outline-info bg-info text-white rounded-pill">
+                         Create post
+                        </a>
+                    </div>
+                </div>
+ 
+            </div>
+            <h2> All Businesses</h2>
+            <div class="col-md-12 mt-3">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Neighborhood</th>
+                                <th scope="col">Date</th>
+                                
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            {% for biss in businesses %}
+                            <tr>
+
+                                <td> {{ biss.business_name }} </td>
+                                <td> {{ biss.email }} </td>
+                                <td> {{ biss.location }} </td>
+                                <td> {{ biss.neighborhood }} </td>
+                                <td> {{ biss.created_on|date }} </td>
+                            </tr>
+                            {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center text-danger">No Businesses Created!</td>
+                    </tr>
+                    
+                            {% endfor %}  
+                        </tbody>
+
+                    </table>
+                </div>
+            
+            </div>
+            <br>
+            <h2>All Posts</h2>
+            <div class="col-md-12 mt-3">
+                <div class="card">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Neighborhood</th>
+                                <th scope="col">Date</th>
+                                
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            {% for post in posts %}
+                            <tr>
+
+                                <td> {{ post.title}} </td>
+                                <td> {{ post.content }} </td>
+                                <td> {{ post.location }} </td>
+                                <td> {{ post.neighborhood }} </td>
+                                <td> {{ post.created_at|date}} </td>
+                            </tr>
+                            {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center text-danger">No Posts yet!!</td>
+                    </tr>
+                    
+                            {% endfor %}  
+                        </tbody>
+
+                    </table>
+                </div>
+            
+            </div>
+        </div>
+        
+   </section>
+
+ 
+   
+   {% endblock %}
